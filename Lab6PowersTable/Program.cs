@@ -8,19 +8,18 @@ namespace Lab6PowersTable
         {
             char userInput = 'y';
 
+            //prints a header message
             Console.WriteLine("Learn your squares and cubes!");
             Console.WriteLine("");
 
+            //runs while loop while user input is yes
             while (userInput == 'y')
             {
-                
-                Console.WriteLine("");
+                //Gets user input and stores it as an integer into baseNumber
                 Console.Write("Enter an integer: ");
                 int baseNumber = int.Parse(Console.ReadLine());
 
-                //printing the base number the user entered to the 2nd power?
-                
-
+                //When baseNumber is greater than 0 the table will display
                 if (baseNumber > 0)
                 {
                     DisplayTable(baseNumber);
@@ -33,7 +32,7 @@ namespace Lab6PowersTable
                     userInput = Console.ReadLine().ToLower()[0];
                     if (userInput == 'n')
                     {
-                        Console.WriteLine("OKBAI!!");
+                        Console.WriteLine("Good Day!");
                     }
                 }
 
@@ -41,32 +40,34 @@ namespace Lab6PowersTable
         }
         public static void DisplayTable(int input)
         {
-            
+            //my attempt at getting the table to line up
             Console.WriteLine("\n");
             Console.WriteLine("Number\tSquared\tCubed");
             Console.WriteLine("======\t======\t======");
 
+            // calls methods for userinput, square and cube and prints to the console.
             for (int i = 1; i <= input; i++)
             {
-                Console.WriteLine(Power(i) + "  " + Power2(i) + "   " + Power3(i));
+                Console.WriteLine(UserInput(i) + "      " + Square(i) + "      " + Cube(i));
 
             }
         }
-
-        public static int Power(int baseNumber)
+        //method to calculate the base
+        public static int UserInput(int baseNumber)
         {
             return baseNumber;
 
         }
-        public static int Power2(int baseNumber)
+        //method to calculate square
+        public static int Square(int baseNumber)
         {
             return baseNumber * baseNumber;
 
         }
-
-        public static int Power3(int baseNumber)
+        //method to calculate cube
+        public static int Cube(int baseNumber)
         {
-            return Power2(baseNumber)*baseNumber;
+            return Square(baseNumber)*baseNumber;
         }
     }
 
